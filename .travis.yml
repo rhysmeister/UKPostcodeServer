@@ -10,6 +10,7 @@ before_install:
   - docker version
   - docker run hello-world
 install:
+  - docker swarm init
   - docker stack deploy -c docker-compose.yml mystack
   - sleep 5
   - docker stack ls
