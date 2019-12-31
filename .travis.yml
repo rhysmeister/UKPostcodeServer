@@ -13,7 +13,7 @@ install:
   - docker swarm init
   - docker service create --name registry --publish published=5001,target=5001 registry:2
   - sleep 5
-  - curl http://localhost:5000/v2/
+  - curl http://localhost:5001/v2/
   - docker-compose build
   - docker-compose push
   - docker stack deploy -c docker-compose.yml mystack
