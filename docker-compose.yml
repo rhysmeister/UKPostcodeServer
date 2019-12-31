@@ -20,7 +20,7 @@
       build:
         dockerfile: './custom_nginx'
         context: '.'
-      image: localhost:5000/dockercompose_web
+      image: localhost:5001/dockercompose_web
       ports:
         - 8080:80
       volumes:
@@ -38,7 +38,7 @@
       build:
         dockerfile: './custom_mariadb'
         context: '.'
-      image: localhost:5000/dockercompose_db
+      image: localhost:5001/dockercompose_db
       environment:
         MYSQL_ROOT_PASSWORD: secret
         MYSQL_DATABASE: ukpostcodes
