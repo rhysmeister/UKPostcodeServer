@@ -1,3 +1,4 @@
+sudo: required
 before_install:
   - apt-get remove docker docker-engine docker.io containerd runc
   - apt-get update
