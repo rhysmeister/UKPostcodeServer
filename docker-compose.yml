@@ -6,7 +6,7 @@
         build:
           dockerfile: './custom_nginx'
           context: '.'
-        image: dockercompose_flask
+        image: localhost:5000/dockercompose_flask
         environment:
             - FLASK_APP=/usr/src/app/project/app.py
         command: flask run --host=0.0.0.0
@@ -20,7 +20,7 @@
       build:
         dockerfile: './custom_nginx'
         context: '.'
-      image: dockercompose_web
+      image: localhost:5000/dockercompose_web
       ports:
         - 8080:80
       volumes:
@@ -38,7 +38,7 @@
       build:
         dockerfile: './custom_mariadb'
         context: '.'
-      image: dockercompose_db
+      image: localhost:5000/dockercompose_db
       environment:
         MYSQL_ROOT_PASSWORD: secret
         MYSQL_DATABASE: ukpostcodes
