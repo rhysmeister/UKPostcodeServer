@@ -27,7 +27,7 @@ docker exec -ti dockercompose_web_1 sh
 Execute a call against the bundled postcode api. Spaces must be included as %20
 
 ```
-curl http://localhost:80?postcode=sl7%201uq
+curl http://localhost:8080?postcode=sl7%201uq
 ```
 
 Check logs for a container

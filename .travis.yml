@@ -1,0 +1,16 @@
+before_install:
+  - yum install epel-release
+  - yum install curl
+  - yum install docker-ce
+  - systemctl start docker.service
+  - yum install -y python-pip
+  - pip install docker-compose
+  - yum upgrade python*
+  - docker-compose version
+install:
+  - docker-compose up -d
+  - docker-compose ps
+script:
+  - files/test_ukpostcode.sh
+after_script:
+  - docker-compose down -v
