@@ -6,7 +6,7 @@
         build:
           dockerfile: './custom_nginx'
           context: '.'
-        image: localhost:5000/dockercompose_flask
+        image: localhost:5001/dockercompose_flask
         environment:
             - FLASK_APP=/usr/src/app/project/app.py
         command: flask run --host=0.0.0.0
