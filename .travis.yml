@@ -12,7 +12,7 @@ before_install:
 install:
   - docker swarm init
   - docker service create --name registry --publish published=5001,target=5001 registry:2
-  - sleep 5
+  - sleep 10
   - curl http://localhost:5001/v2/
   - docker-compose build
   - docker-compose push
