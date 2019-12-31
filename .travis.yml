@@ -11,8 +11,8 @@ before_install:
   - docker run hello-world
 install:
   - docker swarm init
-  - docker service create --name registry --publish published=5001,target=5001 registry:latest
-  - sleep 10
+  - docker service create --name registry --publish published=5001,target=5000 registry:latest
+  - sleep 5
   - curl http://localhost:5001/v2/
   - docker-compose build
   - docker-compose push
