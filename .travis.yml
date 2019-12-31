@@ -7,14 +7,16 @@ before_install:
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get install docker-ce docker-ce-cli containerd.io
-  - sudo docker version
-  - sudo docker-compose version
-  - sudo docker run hello-world
+  - docker version
+  - docker run hello-world
 install:
-  - docker-compose up -d
-  - docker-compose ps
-  - sleep 30
+  - docker stack deploy -c docker-compose.yml mystack
+  - sleep 5
+  - docker stack ls
+  - docker stack ps mystack
+  - docker stack services mystack
+  - sleep 25
 script:
   - files/test_ukpostcode.sh
 after_script:
-  - docker-compose down -v
+  - docker stack rm mystack
